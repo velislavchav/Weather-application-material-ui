@@ -1,0 +1,16 @@
+<section>
+  <mat-form-field class="example-form-field">
+    <mat-label>Name of the city</mat-label>
+    <input matInput type="text" (keyup.enter)="getWeatherByCity()" [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="getWeatherByCity()" [disabled]="value.length < 3">Submit</button>
+</section>
+
+<article>
+  <app-weather-cards *ngIf="weatherInfo && !error" [weatherInfo]="weatherInfo"></app-weather-cards>
+  <h3 *ngIf="error" class="error-message"> {{ error.toUpperCase() }} </h3>
+</article>
+

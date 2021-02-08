@@ -1,0 +1,35 @@
+.card-properties {
+  width: 20%;
+  margin: 15px 1%;
+  float: left;
+}
+
+.mat-tab-group {
+  width: 100%;
+}
+
+.imageHolder {
+  max-width: 200px;
+  margin: auto;
+}
+
+mat-card-header-text {
+  margin: 0;
+}
+
+table {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.table-value {
+  text-align: right;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .card-properties {
+    width: 89%;
+    margin: 2vh 2%;
+  }
+}

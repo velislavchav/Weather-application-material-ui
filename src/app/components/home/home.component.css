@@ -1,0 +1,48 @@
+section {
+    position: relative;
+    top: 15%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 40%;
+}
+
+article {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  margin: 0;
+}
+
+mat-form-field {
+  width: 70%;
+  margin-right: 3%;
+}
+
+.error-message {
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  section  {
+    top: 40%;
+    width: 90%;
+  }
+
+  article {
+    top: 25%;
+    width: 100%;
+    margin: 10vh 0;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  button {
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    width: 50%;
+    margin-top: 10vh;
+  }
+}

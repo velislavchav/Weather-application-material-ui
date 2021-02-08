@@ -1,0 +1,76 @@
+  <mat-card class="card-properties" *ngFor="let weatherDetails of weatherInfo.list">
+    <mat-card-header>
+      <mat-card-title> {{ weatherInfo.city.name}}, {{ weatherInfo.city.country }} </mat-card-title>
+      <mat-card-subtitle> {{ weatherDetails.dt_txt }} </mat-card-subtitle>
+    </mat-card-header>
+    <div class="imageHolder" [ngSwitch]="weatherDetails.weather[0].icon">
+      <img *ngSwitchCase="'02d' || '02n'" mat-card-image src="../../../../assets/images/cloudy_sun.png" alt="weatherDetails.weather[0].main">
+      <img *ngSwitchCase="'03d' || '03n'" mat-card-image src="../../../../assets/images/cloud.png" alt="weatherDetails.weather[0].main">
+      <img *ngSwitchCase="'04d' || '04n'" mat-card-image src="../../../../assets/images/rain.png" alt="weatherDetails.weather[0].main">
+      <img *ngSwitchDefault mat-card-image src="../../../../assets/images/sun.png" alt="weatherDetails.weather[0].main">
+    </div>
+    <mat-card-content>
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Kelvin">
+          <table>
+            <tbody>
+              <tr>
+                <td>Feels like</td>
+                <td class="table-value"> {{ weatherDetails.main.feels_like }} K </td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+                <td class="table-value"> {{ weatherDetails.main.humidity }} % </td>
+              </tr>
+              <tr>
+                <td> Pressure </td>
+                <td class="table-value"> {{ weatherDetails.main.pressure }} bar </td>
+              </tr>
+              <tr>
+                <td> Sea level </td>
+                <td class="table-value"> {{ weatherDetails.main.sea_level }} m </td>
+              </tr>
+              <tr>
+                <td> Temperature min </td>
+                <td class="table-value"> {{ weatherDetails.main.temp_min }} K </td>
+              </tr>
+              <tr>
+                <td> Temperature max </td>
+                <td class="table-value"> {{ weatherDetails.main.temp_max }} K </td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab label="Celsius">
+          <table>
+            <tbody>
+              <tr>
+                <td>Feels like</td>
+                <td class="table-value"> {{ weatherDetails.main.feels_like | temperatureConvertor:weatherDetails.main.feels_like }} </td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+                <td class="table-value"> {{ weatherDetails.main.humidity }} % </td>
+              </tr>
+              <tr>
+                <td> Pressure </td>
+                <td class="table-value"> {{ weatherDetails.main.pressure }} bar </td>
+              </tr>
+              <tr>
+                <td> Sea level </td>
+                <td class="table-value"> {{ weatherDetails.main.sea_level }} m </td>
+              </tr>
+              <tr>
+                <td> Temperature min </td>
+                <td class="table-value"> {{ weatherDetails.main.temp_min | temperatureConvertor:weatherDetails.main.temp_min }}  </td>
+              </tr>
+              <tr>
+                <td> Temperature max </td>
+                <td class="table-value"> {{ weatherDetails.main.temp_max | temperatureConvertor:weatherDetails.main.temp_max }} </td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
