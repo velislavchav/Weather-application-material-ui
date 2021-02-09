@@ -18,6 +18,7 @@ export class HomeComponent {
     this.weatherService.getCityWeather(this.value).then(response => {
       if(response.cod != 404 ) {
         this.weatherInfo = response;
+        this.weatherInfo.list.splice(16)
       } else {
         this.error = response.message;
       }
